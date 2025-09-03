@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 DB = "db/transactions.db"
-MODEL_PATH = "backend/model.joblib"
+MODEL_PATH = "Backend/model.joblib"
 
 # Load ML model
 bundle = joblib.load(MODEL_PATH)
