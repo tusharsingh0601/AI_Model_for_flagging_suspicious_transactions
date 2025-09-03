@@ -5,6 +5,20 @@ from fastapi.middleware.cors import CORSMiddleware  # <-- Make sure this line is
 
 app = FastAPI(title="Fraud Detection Prototype")
 
+@app.get("/")
+def root():
+    return {
+        "message": "🚀 Fraud Detection API is running successfully!",
+        "available_endpoints": {
+            "/transactions": "Get recent transactions",
+            "/alerts": "Get fraud alerts",
+            "/predict": "Predict fraud probability",
+            "/metrics": "View system metrics",
+            "/docs": "Interactive API docs (Swagger UI)"
+        }
+    }
+
+
 # Your app.add_middleware code follows...
 
 # Add this CORS middleware block
