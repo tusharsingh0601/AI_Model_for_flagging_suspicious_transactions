@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 DB = "db/transactions.db"
-MODEL_PATH = "Backend/model.joblib"
+MODEL_PATH = "fraud_detection_analysis/Backend/model.joblib"
 
 # Load ML model
 bundle = joblib.load(MODEL_PATH)
