@@ -1,0 +1,29 @@
+# render.yaml
+# This file specifies the configuration for deploying the Fraud Detection App on Render.
+
+services:
+  # A Web Service for the FastAPI backend and frontend.
+  - type: web
+    # A unique name for the service.
+    name: fraud-detection-service
+    # The runtime environment for the service.
+    env: python
+    # Specify the Python version.
+    pythonVersion: '3.11'
+    # The plan for the instance (free is sufficient for this project).
+    plan: free
+    # The geographic region for the deployment.
+    # Options include: oregon, frankfurt, ohio, singapore
+    region: oregon
+    # The branch to deploy from.
+    branch: main
+    # The command to install dependencies and run build scripts.
+    # This executes the build.sh script which sets up the data, database, and model.
+    buildCommand: "./build.sh"
+    # The command to start the live server.
+    # Render provides the $PORT variable automatically.
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port $PORT"
+    # Optional: A health check path Render can ping to ensure the service is alive.
+    healthCheckPath: /
+    # Optional: Automatically deploy changes pushed to the specified branch.
+    autoDeploy: true
